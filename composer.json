@@ -1,5 +1,5 @@
 {
-    "name": "gettext/gettext",
+    "name": "epiconcept/gettext",
     "type": "library",
     "description": "PHP gettext manager",
     "keywords": ["js", "gettext", "i18n", "translation", "po", "mo"],
@@ -14,8 +14,7 @@
         }
     ],
     "support": {
-        "email": "oom@oscarotero.com",
-        "issues": "https://github.com/oscarotero/Gettext/issues"
+        "email": "framework@epiconcept.fr",
     },
     "require": {
         "php": ">=5.4.0",
