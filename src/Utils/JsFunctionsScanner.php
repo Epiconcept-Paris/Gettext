@@ -205,7 +205,8 @@ class JsFunctionsScanner extends FunctionsScanner
                         case 'simple-quote':
                         case 'back-tick':
                             break;
-
+                        case 'function':
+                            continue 3;
                         default:
                             $buffer = '';
                             continue 3;
