@@ -14,7 +14,7 @@
         }
     ],
     "support": {
-        "email": "framework@epiconcept.fr",
+        "email": "framework@epiconcept.fr"
     },
     "require": {
         "php": "^7.2|^8.0",
