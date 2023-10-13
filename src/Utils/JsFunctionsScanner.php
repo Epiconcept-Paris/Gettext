@@ -83,7 +83,7 @@ class JsFunctionsScanner extends FunctionsScanner {
                             break;
 
                         case 'regex':
-                            if ( !is_numeric( $prev ) ) {
+                            if ( $prev !== '\\' ) {
                                 $this->upStatus();
                             }
                             break;
@@ -183,19 +183,17 @@ class JsFunctionsScanner extends FunctionsScanner {
                         case 'regex':
                             break;
                         case 'function':
-                            if ( $next == ';' || $next == ',' || $next == ' ' ) {
-                                if ( ( $argument = static::prepareArgument( $buffer ) ) ) {
-                                    $bufferFunctions[ 0 ][ 2 ][] = $argument;
-                                }
-
-                                if ( !empty( $bufferFunctions ) ) {
-                                    $functions[] = array_shift( $bufferFunctions );
-                                }
-
-                                $this->upStatus();
-                                $buffer = '';
-                                continue 3;
+                            if ( ( $argument = static::prepareArgument( $buffer ) ) ) {
+                                $bufferFunctions[ 0 ][ 2 ][] = $argument;
                             }
+
+                            if ( !empty( $bufferFunctions ) ) {
+                                $functions[] = array_shift( $bufferFunctions );
+                            }
+
+                            $this->upStatus();
+                            $buffer = '';
+                            continue 3;
                     }
                     break;
 
@@ -240,6 +238,7 @@ class JsFunctionsScanner extends FunctionsScanner {
                     break;
             }
         }
+
         return $functions;
     }
 
