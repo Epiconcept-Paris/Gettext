@@ -93,7 +93,7 @@ class JsFunctionsScanner extends FunctionsScanner {
                                 $this->downStatus( 'line-comment' );
                             } elseif ( $next === '*' ) {
                                 $this->downStatus( 'block-comment' );
-                            } elseif ( !is_numeric( $next ) ) {
+                            } elseif ( !is_numeric( $next ) && $next !== ' ') {
                                 $this->downStatus( 'regex' );
                             }
                             break;
